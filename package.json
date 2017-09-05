@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --display-chunks",
     "start": "NODE_PATH=$NODE_PATH:./src node src/server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "webpack-dev-server"
   },
   "author": "jacktsoi",
   "license": "ISC",
@@ -31,7 +31,9 @@
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "socket.io": "^2.0.3",
-    "socket.io-client": "^2.0.3"
+    "socket.io-client": "^2.0.3",
+    "reactstrap": "^4.8.0",
+    "react-transition-group": "^2.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
