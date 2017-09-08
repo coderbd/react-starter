@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Header from 'app/Header';
-import Footer from 'app/Footer';
+import App from 'app';
 
 ReactDOM.render(
-  <div><Header /><Footer /></div>,
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" name="App" component={App} />
+    </Switch>
+  </BrowserRouter>,
   document.getElementById('app'),
 );

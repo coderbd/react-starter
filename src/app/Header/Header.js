@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-  NavbarToggler,
-  NavbarBrand,
-} from 'reactstrap';
+import { NavbarToggler, NavbarBrand } from 'reactstrap';
 
 class Header extends Component {
   sidebarToggle(e) {
