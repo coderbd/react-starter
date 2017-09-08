@@ -5,6 +5,7 @@ import Header from 'app/header';
 import Footer from 'app/footer';
 import Home from 'app/home';
 import User from 'app/user';
+import Test from 'app/test';
 
 const App = () => (
   <div className="app">
@@ -12,7 +13,8 @@ const App = () => (
     <Switch>
       <Route exact path="/home" name="home" component={Home} />
       <Route exact path="/user" name="user" component={User} />
-      <Redirect from="/" to="/home" />
+      <Route exact path="/test" name="test" component={Test} />
+      <Redirect from="/" to="/test" />
     </Switch>
     <Footer />
   </div>

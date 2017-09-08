@@ -25,9 +25,9 @@ class Header extends Component {
   render() {
     return (
       <header className="app-header navbar">
-        <NavbarToggler className="d-lg-none" onClick={this.mobileSidebarToggle}>&#9776;</NavbarToggler>
+        <NavbarToggler className="d-lg-none" onClick={this.mobileSidebarToggle}>AAA</NavbarToggler>
         <NavbarBrand href="#" />
-        <NavbarToggler className="d-md-down-none mr-auto" onClick={this.sidebarToggle}>&#9776;</NavbarToggler>
+        <NavbarToggler className="d-md-down-none mr-auto" onClick={this.sidebarToggle}>BBB</NavbarToggler>
       </header>
     );
   }
