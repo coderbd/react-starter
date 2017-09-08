@@ -36,6 +36,9 @@ class Header extends Component {
           <NavItem className="px-3">
             <Link to="/test">Test</Link>
           </NavItem>
+          <NavItem className="px-3">
+            <Link to="/login">Login</Link>
+          </NavItem>
         </Nav>
       </header>
     );

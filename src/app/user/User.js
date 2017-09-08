@@ -1,7 +1,7 @@
 import React from 'react';
 
 const User = () => (
-  <div>Comfort zone</div>
+  <div>User Profile</div>
 );
 
 export default User;
