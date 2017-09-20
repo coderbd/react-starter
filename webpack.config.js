@@ -26,7 +26,7 @@ module.exports = {
     output: {
         path: distPath,
         filename: "index_bundle.js",
-        publicPath: "/",
+        publicPath: "/static/",
     },
     resolve: {
         modules: ["node_modules", srcPath],

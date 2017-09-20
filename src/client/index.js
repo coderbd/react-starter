@@ -10,10 +10,10 @@ import App from 'app';
 
 import '../../scss/style.scss';
 
-const initialState = Immutable.fromJS({
+const initialState = (typeof window === 'undefined' ? Immutable.fromJS({
   username: 'jack',
   isAuthenticated: false,
-});
+}) : Immutable.fromJS(window.__INITIAL_STATE__));
 
 const store = createStore(
   LoginReducer,
