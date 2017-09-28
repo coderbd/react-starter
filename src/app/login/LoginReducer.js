@@ -1,13 +1,12 @@
-import { handleActions } from 'redux-actions';
-import AppState from 'app/appstate';
-
-const LoginReducer = handleActions({
-  DO_LOGIN: state => (
-    state.set('isAuthenticated', true)
-  ),
-  DO_CHANGE_LOGIN_USERNAME: (state, { payload }) => (
-    state.set('username', payload.username)
-  ),
-}, AppState);
+const LoginReducer = (state, action) => {
+  switch (action.type) {
+    case 'DO_LOGIN':
+      return state.set('isAuthenticated', true);
+    case 'DO_CHANGE_LOGIN_USERNAME':
+      return state.set('username', action.payload.username);
+    default:
+      return state;
+  }
+};
 
 export default LoginReducer;
