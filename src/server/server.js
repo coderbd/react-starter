@@ -7,6 +7,7 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import Immutable from 'immutable';
 import { createStore } from 'redux';
+import { combineReducers } from 'redux-immutable';
 import webpack from 'webpack';
 import webpackConfig from '../../webpack.config';
 import webpackDevMiddleware from 'webpack-dev-middleware';
@@ -18,6 +19,7 @@ import socket from 'socket.io';
 
 import App from '../app';
 import LoginReducer from '../app/login/LoginReducer';
+import HomeReducer from '../app/home/HomeReducer';
 
 const app = new Express();
 const port = process.env.PORT || 3000;
@@ -50,11 +52,13 @@ const handleRequest = (req, res) => {
   console.log(' [x] Request for', req.url);
 
   const initialState = Immutable.fromJS({
-    username: 'cwtsoi',
-    isAuthenticated: false,
+    login: { username: 'cwtsoi', isAuthenticated: false },
+    home: { welcomeMessage: 'message from server' },
   });
 
-  const store = createStore(LoginReducer, initialState);
+  const rootReducer = combineReducers({ login: LoginReducer, home: HomeReducer });
+
+  const store = createStore(rootReducer, initialState);
   let context = {};
 
   const htmlcode = ReactDOMServer.renderToString(

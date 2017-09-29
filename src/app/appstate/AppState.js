@@ -1,8 +1,8 @@
 import Immutable from 'immutable';
 
 const AppState = Immutable.fromJS({
-  username: '',
-  isAuthenticated: false,
+  login: { username: '', isAuthenticated: false },
+  home: { welcomeMessage: '' },
 });
 
 export default AppState;

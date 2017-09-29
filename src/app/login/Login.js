@@ -40,7 +40,7 @@ LoginComponent.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  username: state.get('username'),
+  username: state.getIn(['login', 'username']),
 });
 
 const mapDispatchToProps = dispatch => ({
