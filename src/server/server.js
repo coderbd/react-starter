@@ -24,21 +24,21 @@ import HomeReducer from '../app/home/HomeReducer';
 const app = new Express();
 const port = process.env.PORT || 3000;
 const server = http.Server(app);
-// const io = socket(server);
-//
-// io.on('connection', socket => {
-//   console.log('a user connected');
-//   socket.emit('message', { userid: "1024", username: "Jacktsoi", servermessage: "good!" });
-//   socket.on('message', data => {
-//     console.log(data);
-//   });
-//   socket.on('disconnect', () => {
-//     console.log('user disconnected');
-//   });
-//   setInterval(() => {
-//     socket.emit('message', { userid: "1000", username: "gogogo", servermessage: "yeah!" });
-//   }, 1000);
-// });
+const io = socket(server);
+
+io.on('connection', socket => {
+  console.log('a user connected');
+  socket.emit('message', { userid: "1024", username: "Jacktsoi", message: "good!" });
+  socket.on('message', data => {
+    console.log(data);
+  });
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+  setInterval(() => {
+    socket.emit('message', { userid: "1000", username: "gogogo", message: "yeah!" });
+  }, 5000);
+});
 
 app.use('/static', Express.static(__dirname + '/public'));
 app.use(cookieParser());

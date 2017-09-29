@@ -5,10 +5,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { createStore } from 'redux';
 import { combineReducers } from 'redux-immutable';
 import Immutable from 'immutable';
+import io from 'socket.io-client';
 
 import LoginReducer from 'app/login/LoginReducer';
 import HomeReducer from 'app/home/HomeReducer';
 import App from 'app';
+import { doChangeWelcomeMessage } from 'app/home/HomeActions';
 
 import '../../scss/style.scss';
 
@@ -23,6 +25,13 @@ const store = createStore(
   rootReducer,
   initialState,
 );
+
+const socket = io();
+socket.on('message', (data) => {
+  console.log(data);
+  console.log(data.message);
+  store.dispatch(doChangeWelcomeMessage(data.message));
+});
 
 ReactDOM.render(
   <Provider store={store}>
