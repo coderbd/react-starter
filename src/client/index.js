@@ -28,8 +28,6 @@ const store = createStore(
 
 const socket = io();
 socket.on('message', (data) => {
-  console.log(data);
-  console.log(data.message);
   store.dispatch(doChangeWelcomeMessage(data.message));
 });
 
